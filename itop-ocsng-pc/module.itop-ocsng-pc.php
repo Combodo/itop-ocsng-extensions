@@ -59,7 +59,7 @@ SetupWebPage::AddModule(
 		//
 		'settings' => array(
 			// Module specific settings go here, if any
-			'ocsng_server_url' => 'http://localhost/ocsreport/',
+			'ocsng_pc_url' => 'http://localhost/ocsreports/',
 		),
 	)
 );

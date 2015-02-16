@@ -38,7 +38,7 @@ class OCSNGVMplugin implements iApplicationUIExtension
 				if ( $oObject->Get('ocsid') != '')
 				{
 					$oPage->SetCurrentTab(Dict::S('OCSNG'));
-					$sOcsngURL = MetaModel::GetModuleSetting('itop-ocsng', 'ocsng_server_url', '');
+					$sOcsngURL = MetaModel::GetModuleSetting('itop-ocsng-vm', 'ocsng_vm_url', '');
 					$sHostURL = $sOcsngURL.'index.php?function=computer&head=1&systemid='.$oObject->Get('ocsid');
 					$oPage->add("<div id=\"ocsng\" class=\"resizable\" style=\"height:1000px;\"><iframe src=\"$sHostURL\" style=\"width:100%;height:100%;\"></iframe></div>");
 				}
