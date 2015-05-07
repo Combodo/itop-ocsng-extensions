@@ -16,16 +16,17 @@
 
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'itop-ocsng-server/1.0.0',
+	'itop-ocsng-server/1.1.0',
 	array(
 		// Identification
 		//
-		'label' => 'OCNG Integration for Server',
+		'label' => 'OCSNG Integration for Server',
 		'category' => 'inventory',
 
 		// Setup
 		//
 		'dependencies' => array(
+			'itop-ocsng/1.0.0',
 			'itop-config-mgmt/2.0.0',
 		),
 		'mandatory' => false,
@@ -34,7 +35,7 @@ SetupWebPage::AddModule(
 		// Components
 		//
 		'datamodel' => array(
-			'main.itop-ocsng-server.php'
+
 		),
 		'webservice' => array(
 
@@ -58,7 +59,6 @@ SetupWebPage::AddModule(
 		//
 		'settings' => array(
 			// Module specific settings go here, if any
-			'ocsng_server_url' => 'http://localhost/ocsreports/',
 		),
 	)
 );

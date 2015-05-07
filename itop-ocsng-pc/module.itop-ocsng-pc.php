@@ -16,16 +16,17 @@
 
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'itop-ocsng-pc/1.0.0',
+	'itop-ocsng-pc/1.1.0',
 	array(
 		// Identification
 		//
-		'label' => 'OCNG Integration for PC',
+		'label' => 'OCSNG Integration for PC',
 		'category' => 'inventory',
 
 		// Setup
 		//
 		'dependencies' => array(
+			'itop-ocsng/1.0.0',
 			'itop-config-mgmt/2.0.0',
 			'itop-endusers-devices/2.0.0',
 		),
@@ -35,7 +36,7 @@ SetupWebPage::AddModule(
 		// Components
 		//
 		'datamodel' => array(
-			'main.itop-ocsng-pc.php'
+
 		),
 		'webservice' => array(
 
@@ -59,7 +60,6 @@ SetupWebPage::AddModule(
 		//
 		'settings' => array(
 			// Module specific settings go here, if any
-			'ocsng_pc_url' => 'http://localhost/ocsreports/',
 		),
 	)
 );

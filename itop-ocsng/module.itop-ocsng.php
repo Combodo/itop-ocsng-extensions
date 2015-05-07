@@ -16,19 +16,17 @@
 
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'itop-ocsng-vm/1.1.0',
+	'itop-ocsng/1.1.0',
 	array(
 		// Identification
 		//
-		'label' => 'OCSNG Integration for Virtual machine',
+		'label' => 'OCSNG Integration',
 		'category' => 'inventory',
 
 		// Setup
 		//
 		'dependencies' => array(
-			'itop-ocsng/1.0.0',
 			'itop-config-mgmt/2.0.0',
-			'itop-virtualization-mgmt/2.0.0',
 		),
 		'mandatory' => false,
 		'visible' => true,
@@ -36,6 +34,7 @@ SetupWebPage::AddModule(
 		// Components
 		//
 		'datamodel' => array(
+			'main.itop-ocsng.php',
 
 		),
 		'webservice' => array(
@@ -60,7 +59,7 @@ SetupWebPage::AddModule(
 		//
 		'settings' => array(
 			// Module specific settings go here, if any
-
+			'ocsng_url' => 'http://localhost/ocsreports/',
 		),
 	)
 );
