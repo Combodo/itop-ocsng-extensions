@@ -1,5 +1,5 @@
 <?php
-// Copyright (C) 2010 Combodo SARL
+// Copyright (C) 2010-2018 Combodo SARL
 //
 //   This program is free software; you can redistribute it and/or modify
 //   it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
 //   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 /**
- * Module itop-nagios
+ * Module itop-ocsng
  *
  * @author      Erwan Taloc <erwan.taloc@combodo.com>
  * @author      Romain Quetiez <romain.quetiez@combodo.com>
@@ -35,13 +35,40 @@ class OCSNGPCplugin implements iApplicationUIExtension
 	{
 		if ( in_array(get_class($oObject),array('PC','Server','VirtualMachine')) )
 		{
-				if ( $oObject->Get('ocsid') != '')
-				{
-					$oPage->SetCurrentTab(Dict::S('OCSNG'));
+		        $aSynchroData = $oObject->GetSynchroData();
+		        $iOCSID = null;
+		        foreach($aSynchroData as $iSourceId => $aData)
+		        {
+		            /**
+		             * @var SynchroDataSource $oSynchroDataSource
+		             */
+		            $oSynchroDataSource = $aData['source'];
+		            if (preg_match('/Synchro (.*) OCSng$/', $oSynchroDataSource->GetName()))
+		            {
+		                /**
+		                 * @var SynchroReplica $oReplica
+		                 */
+		                foreach($aData['replica'] as $oReplica)
+		                {
+		                    // Ignore non-synchronized replicas
+		                    if ($oReplica->Get('status') !== 'synchronized') continue;
+		                    
+		                    $sSQLTable = $oSynchroDataSource->GetDataTable();
+		                    $aExtraData = $oReplica->LoadExtendedDataFromTable($sSQLTable);
+		                    // Hack: the OCSID is stored in the NON-SYNCHRONIZED field 'tickets_list' !!!
+		                    $iOCSID = $aExtraData['tickets_list'];
+		                    // Stop once we've found one OCS ID (we'll display only one iframe)
+		                    break;
+		                }
+		            }
+		        }
+		        if ( $iOCSID !== null )
+		        {
+					$oPage->SetCurrentTab(Dict::S('OCS Inventory'));
 					$sOcsngURL = MetaModel::GetModuleSetting('itop-ocsng', 'ocsng_url', '');
-					$sHostURL = $sOcsngURL.'index.php?function=computer&head=1&systemid='.$oObject->Get('ocsid');
+					$sHostURL = $sOcsngURL.'index.php?function=computer&head=1&systemid='.$iOCSID;
 					$oPage->add("<div id=\"ocsng\" class=\"resizable\" style=\"height:1000px;\"><iframe src=\"$sHostURL\" style=\"width:100%;height:100%;\"></iframe></div>");
-				}
+		        }
 		}
 	}
 
@@ -78,4 +105,3 @@ class OCSNGPCplugin implements iApplicationUIExtension
 
 }
 
-?>
