@@ -22,86 +22,46 @@
  * @author      Denis Flaven <denis.flaven@combodo.com>
  * @license     http://www.opensource.org/licenses/gpl-3.0.html LGPL
  */
-
-
-
-class OCSNGPCplugin implements iApplicationUIExtension
+class OCSNGPCplugin implements iPopupMenuExtension
 {
-	public function OnDisplayProperties($oObject, WebPage $oPage, $bEditMode = false)
+	public static function EnumItems($iMenuId, $param)
 	{
-	}
+		$aExtraMenus = array();
+		if ($iMenuId == iPopupMenuExtension::MENU_OBJDETAILS_ACTIONS && in_array(get_class($param), ['PC', 'Server', 'VirtualMachine'])) {
+			$aSynchroData = $param->GetSynchroData();
+			$iOCSID = null;
+			foreach ($aSynchroData as $iSourceId => $aData) {
+				/**
+				 * @var SynchroDataSource $oSynchroDataSource
+				 */
+				$oSynchroDataSource = $aData['source'];
+				if (str_contains($oSynchroDataSource->GetName(), 'OCSng')) {
+					/**
+					 * @var SynchroReplica $oReplica
+					 */
+					foreach ($aData['replica'] as $oReplica) {
+						// Ignore non-synchronized replicas
+						if ($oReplica->Get('status') !== 'synchronized') {
+							continue;
+						}
 
-	public function OnDisplayRelations($oObject, WebPage $oPage, $bEditMode = false)
-	{
-		if ( in_array(get_class($oObject),array('PC','Server','VirtualMachine')) )
-		{
-		        $aSynchroData = $oObject->GetSynchroData();
-		        $iOCSID = null;
-		        foreach($aSynchroData as $iSourceId => $aData)
-		        {
-		            /**
-		             * @var SynchroDataSource $oSynchroDataSource
-		             */
-		            $oSynchroDataSource = $aData['source'];
-		            if (preg_match('/Synchro (.*) OCSng$/', $oSynchroDataSource->GetName()))
-		            {
-		                /**
-		                 * @var SynchroReplica $oReplica
-		                 */
-		                foreach($aData['replica'] as $oReplica)
-		                {
-		                    // Ignore non-synchronized replicas
-		                    if ($oReplica->Get('status') !== 'synchronized') continue;
-		                    
-		                    $sSQLTable = $oSynchroDataSource->GetDataTable();
-		                    $aExtraData = $oReplica->LoadExtendedDataFromTable($sSQLTable);
-		                    // Hack: the OCSID is stored in the NON-SYNCHRONIZED field 'tickets_list' !!!
-		                    $iOCSID = $aExtraData['tickets_list'];
-		                    // Stop once we've found one OCS ID (we'll display only one iframe)
-		                    break;
-		                }
-		            }
-		        }
-		        if ( $iOCSID !== null )
-		        {
-					$oPage->SetCurrentTab(Dict::S('OCS Inventory'));
-					$sOcsngURL = MetaModel::GetModuleSetting('itop-ocsng', 'ocsng_url', '');
-					$sHostURL = $sOcsngURL.'index.php?function=computer&head=1&systemid='.$iOCSID;
-					$oPage->add("<div id=\"ocsng\" class=\"resizable\" style=\"height:1000px;\"><iframe src=\"$sHostURL\" style=\"width:100%;height:100%;\"></iframe></div>");
-		        }
+						$sSQLTable = $oSynchroDataSource->GetDataTable();
+						$aExtraData = $oReplica->LoadExtendedDataFromTable($sSQLTable);
+						// Hack: the OCSID is stored in the NON-SYNCHRONIZED field 'tickets_list' !!!
+						$iOCSID = $aExtraData['tickets_list'];
+						// Stop once we've found one OCS ID (we'll display only one iframe)
+						break;
+					}
+				}
+			}
+			if ($iOCSID !== null) {
+				$sOcsngURL = MetaModel::GetModuleSetting('itop-ocsng', 'ocsng_url', '');
+				$sHostURL = $sOcsngURL.'index.php?function=computer&head=1&systemid='.$iOCSID;
+				$aExtraMenus[] = new URLButtonItem('OCS_Inventory', Dict::S('OCS Inventory'), $sHostURL, '_ocs'.get_class($param).$iOCSID);
+			}
 		}
+
+		return $aExtraMenus;
 	}
-
-	public function OnFormSubmit($oObject, $sFormPrefix = '')
-	{
-	}
-
-	public function OnFormCancel($sTempId)
-	{
-	}
-
-	public function EnumUsedAttributes($oObject)
-	{
-		return array();
-	}
-
-	public function GetIcon($oObject)
-	{
-		return '';
-	}
-
-	public function GetHilightClass($oObject)
-	{
-		// Possible return values are:
-		// HILIGHT_CLASS_CRITICAL, HILIGHT_CLASS_WARNING, HILIGHT_CLASS_OK, HILIGHT_CLASS_NONE	
-		return HILIGHT_CLASS_NONE;
-	}
-
-	public function EnumAllowedActions(DBObjectSet $oSet)
-	{
-
-		return array();
-	}
-
 }
 
