@@ -1,7 +1,436 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
   <classes>
+    <class id="PC" _delta="if_exists">
+      <fields>
+        <field id="ocs_id" xsi:type="AttributeInteger" _delta="define">
+          <sql>ocs_id</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="ocs_oscomment" xsi:type="AttributeString" _delta="define">
+          <sql>ocs_oscomment</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="oslicence_id" xsi:type="AttributeExternalKey" _delta="define">
+          <filter><![CDATA[SELECT OSLicence WHERE osversion_id = :this->osversion_id]]></filter>
+          <dependencies>
+            <attribute id="osversion_id"/>
+          </dependencies>
+          <sql>oslicence_id</sql>
+          <target_class>OSLicence</target_class>
+          <is_null_allowed>true</is_null_allowed>
+          <on_target_delete>DEL_MANUAL</on_target_delete>
+        </field>
+        <field id="oslicence_name" xsi:type="AttributeExternalField" _delta="define">
+          <extkey_attcode>oslicence_id</extkey_attcode>
+          <target_attcode>name</target_attcode>
+        </field>
+        <field id="cvss" xsi:type="AttributeDecimal" _delta="define">
+          <sql>cvss</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <digits>4</digits>
+          <decimals>2</decimals>
+        </field>
+      </fields>
+      <presentation>
+        <details>
+          <items>
+            <item id="col:col1" _delta="must_exist">
+              <items>
+                <item id="fieldset:Server:moreinfo" _delta="must_exist">
+                  <items>
+                    <item id="oslicence_id" _delta="define">
+                      <rank>42</rank>
+                    </item>
+                    <item id="ocs_oscomment" _delta="define">
+                      <rank>43</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="OSLicence" _delta="must_exist">
+      <fields>
+        <field id="pc_list" xsi:type="AttributeLinkedSet" _delta="define">
+          <linked_class>PC</linked_class>
+          <ext_key_to_me>oslicence_id</ext_key_to_me>
+          <legacy_edit_mode>none</legacy_edit_mode>
+          <count_min>0</count_min>
+          <count_max>0</count_max>
+          <relation_type>link</relation_type>
+          <read_only>true</read_only>
+        </field>
+      </fields>
+    </class>
+    <class id="Server" _delta="must_exist">
+      <fields>
+        <field id="ocs_oscomment" xsi:type="AttributeString" _delta="define">
+          <sql>ocs_oscomment</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="ocs_id" xsi:type="AttributeInteger" _delta="define">
+          <sql>ocs_id</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="cvss" xsi:type="AttributeDecimal" _delta="define">
+          <sql>cvss</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <digits>4</digits>
+          <decimals>2</decimals>
+        </field>
+      </fields>
+      <presentation>
+        <details>
+          <items>
+            <item id="col:col1" _delta="must_exist">
+              <items>
+                <item id="fieldset:Server:moreinfo" _delta="must_exist">
+                  <items>
+                    <item id="ocs_oscomment" _delta="define">
+                      <rank>43</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="VirtualMachine" _delta="if_exists">
+      <fields>
+        <field id="virtualhost_id" xsi:type="AttributeExternalKey">
+          <is_null_allowed _delta="redefine">true</is_null_allowed>
+        </field>
+        <field id="ocs_oscomment" xsi:type="AttributeString" _delta="define">
+          <sql>ocs_oscomment</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="ocs_id" xsi:type="AttributeInteger" _delta="define">
+          <sql>ocs_id</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="cvss" xsi:type="AttributeDecimal" _delta="define">
+          <sql>cvss</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <digits>4</digits>
+          <decimals>2</decimals>
+        </field>
+      </fields>
+      <presentation>
+        <details>
+          <items>
+            <item id="col:col1" _delta="must_exist">
+              <items>
+                <item id="fieldset:Server:moreinfo" _delta="must_exist">
+                  <items>
+                    <item id="ocs_oscomment" _delta="define">
+                      <rank>43</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="MobilePhone" _delta="if_exists">
+      <fields>
+        <field id="ocs_oscomment" xsi:type="AttributeString" _delta="define">
+          <sql>ocs_oscomment</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="ocs_osfamily_id" xsi:type="AttributeExternalKey" _delta="define">
+          <sql>ocs_osfamily_id</sql>
+          <target_class>OSFamily</target_class>
+          <is_null_allowed>true</is_null_allowed>
+          <on_target_delete>DEL_MANUAL</on_target_delete>
+        </field>
+        <field id="ocs_osfamily_name" xsi:type="AttributeExternalField" _delta="define">
+          <extkey_attcode>ocs_osfamily_id</extkey_attcode>
+          <target_attcode>name</target_attcode>
+        </field>
+        <field id="ocs_osversion_id" xsi:type="AttributeExternalKey" _delta="define">
+          <filter><![CDATA[SELECT OSVersion WHERE osfamily_id = :this->ocs_osfamily_id]]></filter>
+          <dependencies>
+            <attribute id="ocs_osfamily_id"/>
+          </dependencies>
+          <sql>ocs_osversion_id</sql>
+          <target_class>OSVersion</target_class>
+          <is_null_allowed>true</is_null_allowed>
+          <on_target_delete>DEL_MANUAL</on_target_delete>
+        </field>
+        <field id="ocs_osversion_name" xsi:type="AttributeExternalField" _delta="define">
+          <extkey_attcode>ocs_osversion_id</extkey_attcode>
+          <target_attcode>name</target_attcode>
+        </field>
+        <field id="ocs_id" xsi:type="AttributeInteger" _delta="define">
+          <sql>ocs_id</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+        <field id="cvss" xsi:type="AttributeDecimal" _delta="define">
+          <sql>cvss</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <digits>4</digits>
+          <decimals>2</decimals>
+        </field>
+      </fields>
+      <presentation>
+        <details>
+          <items>
+            <item id="fieldset:Server:moreinfo" _delta="define">
+              <items>
+                <item id="ocs_osfamily_name" _delta="define">
+                  <rank>500</rank>
+                </item>
+                <item id="ocs_osversion_name" _delta="define">
+                  <rank>510</rank>
+                </item>
+                <item id="ocs_oscomment" _delta="define">
+                  <rank>520</rank>
+                </item>
+              </items>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="Printer" _delta="if_exists">
+      <fields>
+        <field id="ocs_driver" xsi:type="AttributeString" _delta="define">
+          <sql>ocs_driver</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+      </fields>
+      <presentation>
+        <details>
+          <items>
+            <item id="ocs_driver" _delta="define">
+              <rank>500</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+    </class>
+    <class id="Software" _delta="if_exists">
+      <fields>
+        <field id="cvss" xsi:type="AttributeDecimal" _delta="define">
+          <sql>cvss</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <digits>4</digits>
+          <decimals>2</decimals>
+        </field>
+      </fields>
+    </class>
+    <class id="OCSAssetCategory" _delta="define">
+      <properties>
+        <category>bizmodel,searchable</category>
+        <abstract>false</abstract>
+        <db_table>asset_category</db_table>
+        <naming>
+          <attributes>
+            <attribute id="name"/>
+          </attributes>
+        </naming>
+        <reconciliation>
+          <attributes>
+            <attribute id="name"/>
+          </attributes>
+        </reconciliation>
+        <uniqueness_rules>
+          <rule id="assetCategoryName">
+            <attributes>
+              <attribute id="name"/>
+            </attributes>
+          </rule>
+        </uniqueness_rules>
+      </properties>
+      <fields>
+        <field id="target_class" xsi:type="AttributeEnum">
+          <sql>code</sql>
+          <values>
+            <value id="PC">PC</value>
+            <value id="Server">Server</value>
+            <value id="VirtualMachine">VirtualMachine</value>
+            <value id="MobilePhone">MobilePhone</value>
+          </values>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <display_style>list</display_style>
+          <dependencies/>
+        </field>
+        <field id="description" xsi:type="AttributeString" _delta="define">
+          <sql>description</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
+      </fields>
+      <presentation>
+        <list>
+          <items>
+            <item id="name">
+              <rank>10</rank>
+            </item>
+            <item id="target_class">
+              <rank>20</rank>
+            </item>
+            <item id="description">
+              <rank>30</rank>
+            </item>
+          </items>
+        </list>
+        <search>
+          <items>
+            <item id="name">
+              <rank>10</rank>
+            </item>
+            <item id="target_class">
+              <rank>20</rank>
+            </item>
+          </items>
+        </search>
+        <details>
+          <items>
+            <item id="name">
+              <rank>10</rank>
+            </item>
+            <item id="target_class">
+              <rank>20</rank>
+            </item>
+            <item id="description">
+              <rank>30</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+      <methods></methods>
+      <parent>Typology</parent>
+    </class>
+    <class id="OCSSoftwareCategory" _delta="define">
+      <properties>
+        <category>bizmodel,searchable</category>
+        <abstract>false</abstract>
+        <db_table>software_category</db_table>
+        <naming>
+          <attributes>
+            <attribute id="name"/>
+          </attributes>
+        </naming>
+        <reconciliation>
+          <attributes>
+            <attribute id="name"/>
+          </attributes>
+        </reconciliation>
+        <uniqueness_rules>
+          <rule id="assetCategoryName">
+            <attributes>
+              <attribute id="name"/>
+            </attributes>
+          </rule>
+        </uniqueness_rules>
+      </properties>
+      <fields>
+        <field id="type" xsi:type="AttributeEnum">
+          <values>
+            <value id="Middleware">
+              <code>Middleware</code>
+            </value>
+            <value id="DBServer">
+              <code>DBServer</code>
+            </value>
+            <value id="PCSoftware">
+              <code>PCSoftware</code>
+            </value>
+            <value id="OtherSoftware">
+              <code>OtherSoftware</code>
+            </value>
+            <value id="WebServer">
+              <code>WebServer</code>
+            </value>
+          </values>
+          <sql>type</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+          <display_style>list</display_style>
+        </field>
+      </fields>
+      <presentation>
+        <list>
+          <items>
+            <item id="name">
+              <rank>10</rank>
+            </item>
+            <item id="type">
+              <rank>20</rank>
+            </item>
+          </items>
+        </list>
+        <search>
+          <items>
+            <item id="name">
+              <rank>10</rank>
+            </item>
+            <item id="type">
+              <rank>20</rank>
+            </item>
+          </items>
+        </search>
+        <details>
+          <items>
+            <item id="name">
+              <rank>10</rank>
+            </item>
+            <item id="type">
+              <rank>20</rank>
+            </item>
+          </items>
+        </details>
+      </presentation>
+      <methods></methods>
+      <parent>Typology</parent>
+    </class>
   </classes>
   <menus>
+    <menu id="Typology" xsi:type="DashboardMenuNode" _delta="if_exists">
+      <rank>80</rank>
+      <parent>Catalogs</parent>
+      <definition>
+        <layout>DashboardLayoutOneCol</layout>
+        <title>Menu:ConfigManagement:Typology</title>
+        <cells>
+          <cell id="0" _delta="if_exists">
+            <dashlets>
+              <dashlet id="20" xsi:type="DashletBadge" _delta="define">
+                <rank>20</rank>
+                <class>OCSAssetCategory</class>
+              </dashlet>
+              <dashlet id="21" xsi:type="DashletBadge" _delta="define">
+                <rank>21</rank>
+                <class>OCSSoftwareCategory</class>
+              </dashlet>
+            </dashlets>
+          </cell>
+        </cells>
+      </definition>
+    </menu>
   </menus>
 </itop_design>
