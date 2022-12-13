@@ -27,6 +27,7 @@ SetupWebPage::AddModule(
 		//
 		'dependencies' => array(
 			'itop-config-mgmt/2.0.0',
+			'itop-virtualization-mgmt/2.0.0',
 		),
 		'mandatory' => false,
 		'visible' => true,
@@ -34,14 +35,14 @@ SetupWebPage::AddModule(
 		// Components
 		//
 		'datamodel' => array(
-			'main.itop-ocsng.php',
-
+			'src/Hook/OCSngStylesheets.php',
+			'src/Hook/OCSngMenuExtension.php',
 		),
 		'webservice' => array(
 
 		),
 		'dictionary' => array(
-			//'en.dict.itop-ocsng.php',
+			'en.dict.itop-ocsng-extensions.php',
 		),
 		'data.struct' => array(
 			'data.struct.ocsng-extensions.xml',

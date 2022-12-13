@@ -3,75 +3,69 @@
   <classes>
     <class id="PC" _delta="must_exist">
       <fields>
-        <field id="ocs_winprodkey" xsi:type="AttributeString" _delta="define">
-          <sql>ocs_winprodkey</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-        </field>
-        <field id="ocs_winprodid" xsi:type="AttributeString" _delta="define">
-          <sql>ocs_winprodid</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-        </field>
         <field id="ocs_oscomment" xsi:type="AttributeString" _delta="define">
           <sql>ocs_oscomment</sql>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
         </field>
-        <field id="ocs_idpc" xsi:type="AttributeString" _delta="define">
-          <sql>ocs_idpc</sql>
+        <field id="ocs_id" xsi:type="AttributeInteger" _delta="define">
+          <sql>ocs_id</sql>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
         </field>
-        <field id="id_ocs" xsi:type="AttributeInteger" _delta="define">
-          <sql>id_ocs</sql>
-          <default_value/>
+        <field id="oslicence_id" xsi:type="AttributeExternalKey" _delta="define">
+          <filter><![CDATA[SELECT OSLicence WHERE osversion_id = :this->osversion_id]]></filter>
+          <dependencies>
+            <attribute id="osversion_id"/>
+          </dependencies>
+          <sql>oslicence_id</sql>
+          <target_class>OSLicence</target_class>
           <is_null_allowed>true</is_null_allowed>
+          <on_target_delete>DEL_MANUAL</on_target_delete>
+        </field>
+        <field id="oslicence_name" xsi:type="AttributeExternalField" _delta="define">
+          <extkey_attcode>oslicence_id</extkey_attcode>
+          <target_attcode>name</target_attcode>
         </field>
       </fields>
       <presentation>
         <details>
           <items>
-            <item id="ocs_winprodkey" _delta="define">
-              <rank>500</rank>
-            </item>
-            <item id="ocs_winprodid" _delta="define">
-              <rank>510</rank>
+            <item id="oslicence_id" _delta="define">
+              <rank>42</rank>
             </item>
             <item id="ocs_oscomment" _delta="define">
-              <rank>520</rank>
+              <rank>43</rank>
             </item>
-            <item id="ocs_idpc" _delta="define">
+            <item id="ocs_id" _delta="define">
               <rank>530</rank>
             </item>
           </items>
         </details>
       </presentation>
+    </class>
+    <class id="OSLicence" _delta="must_exist">
+      <fields>
+        <field id="pc_list" xsi:type="AttributeLinkedSet" _delta="define">
+          <linked_class>PC</linked_class>
+          <ext_key_to_me>oslicence_id</ext_key_to_me>
+          <legacy_edit_mode>none</legacy_edit_mode>
+          <count_min>0</count_min>
+          <count_max>0</count_max>
+          <relation_type>link</relation_type>
+          <read_only>true</read_only>
+        </field>
+      </fields>
     </class>
     <class id="Server" _delta="must_exist">
       <fields>
-        <field id="ocs_winprodkey" xsi:type="AttributeString" _delta="define">
-          <sql>ocs_winprodkey</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-        </field>
-        <field id="ocs_winprodid" xsi:type="AttributeString" _delta="define">
-          <sql>ocs_winprodid</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-        </field>
         <field id="ocs_oscomment" xsi:type="AttributeString" _delta="define">
           <sql>ocs_oscomment</sql>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
         </field>
-        <field id="ocs_idpc" xsi:type="AttributeString" _delta="define">
-          <sql>ocs_idpc</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-        </field>
-        <field id="id_ocs" xsi:type="AttributeInteger" _delta="define">
-          <sql>id_ocs</sql>
+        <field id="ocs_id" xsi:type="AttributeInteger" _delta="define">
+          <sql>ocs_id</sql>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
         </field>
@@ -79,46 +73,25 @@
       <presentation>
         <details>
           <items>
-            <item id="ocs_winprodkey" _delta="define">
-              <rank>500</rank>
-            </item>
-            <item id="ocs_winprodid" _delta="define">
-              <rank>510</rank>
-            </item>
             <item id="ocs_oscomment" _delta="define">
-              <rank>520</rank>
+              <rank>43</rank>
             </item>
-            <item id="ocs_idpc" _delta="define">
+            <item id="ocs_id" _delta="define">
               <rank>530</rank>
             </item>
           </items>
         </details>
       </presentation>
     </class>
-    <class id="VirtualMachine" _delta="if_exists">
+    <class id="VirtualMachine" _delta="must_exist">
       <fields>
-        <field id="ocs_winprodkey" xsi:type="AttributeString" _delta="define">
-          <sql>ocs_winprodkey</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-        </field>
-        <field id="ocs_winprodid" xsi:type="AttributeString" _delta="define">
-          <sql>ocs_winprodid</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-        </field>
         <field id="ocs_oscomment" xsi:type="AttributeString" _delta="define">
           <sql>ocs_oscomment</sql>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
         </field>
-        <field id="ocs_idpc" xsi:type="AttributeString" _delta="define">
-          <sql>ocs_idpc</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-        </field>
-        <field id="id_ocs" xsi:type="AttributeInteger" _delta="define">
-          <sql>id_ocs</sql>
+        <field id="ocs_id" xsi:type="AttributeInteger" _delta="define">
+          <sql>ocs_id</sql>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
         </field>
@@ -126,16 +99,10 @@
       <presentation>
         <details>
           <items>
-            <item id="ocs_winprodkey" _delta="define">
-              <rank>500</rank>
-            </item>
-            <item id="ocs_winprodid" _delta="define">
-              <rank>510</rank>
-            </item>
             <item id="ocs_oscomment" _delta="define">
-              <rank>520</rank>
+              <rank>43</rank>
             </item>
-            <item id="ocs_idpc" _delta="define">
+            <item id="ocs_id" _delta="define">
               <rank>530</rank>
             </item>
           </items>
@@ -146,11 +113,6 @@
       <fields>
         <field id="ocs_oscomment" xsi:type="AttributeString" _delta="define">
           <sql>ocs_oscomment</sql>
-          <default_value/>
-          <is_null_allowed>true</is_null_allowed>
-        </field>
-        <field id="ocs_idpc" xsi:type="AttributeString" _delta="define">
-          <sql>ocs_idpc</sql>
           <default_value/>
           <is_null_allowed>true</is_null_allowed>
         </field>
@@ -178,6 +140,11 @@
           <extkey_attcode>ocs_osversion_id</extkey_attcode>
           <target_attcode>name</target_attcode>
         </field>
+        <field id="ocs_id" xsi:type="AttributeInteger" _delta="define">
+          <sql>ocs_id</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
+        </field>
       </fields>
       <presentation>
         <details>
@@ -191,10 +158,10 @@
             <item id="ocs_oscomment" _delta="define">
               <rank>520</rank>
             </item>
-            <item id="ocs_idpc" _delta="define">
-              <rank>530</rank>
-            </item>
           </items>
+          <item id="ocs_id" _delta="define">
+            <rank>530</rank>
+          </item>
         </details>
       </presentation>
     </class>
@@ -331,7 +298,7 @@
             <item id="name">
               <rank>10</rank>
             </item>
-            <item id="target_class">
+            <item id="type">
               <rank>20</rank>
             </item>
           </items>
@@ -341,7 +308,7 @@
             <item id="name">
               <rank>10</rank>
             </item>
-            <item id="target_class">
+            <item id="type">
               <rank>20</rank>
             </item>
           </items>
@@ -351,7 +318,7 @@
             <item id="name">
               <rank>10</rank>
             </item>
-            <item id="target_class">
+            <item id="type">
               <rank>20</rank>
             </item>
           </items>
