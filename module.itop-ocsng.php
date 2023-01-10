@@ -46,7 +46,7 @@ SetupWebPage::AddModule(
 			'fr.dict.itop-ocsng.php',
 		),
 		'data.struct' => array(
-			'data.struct.ocsng-extensions.xml',
+			//'data.struct.ocsng-extensions.xml',
 			//'data.struct.xml',
 		),
 		'data.sample' => array(
