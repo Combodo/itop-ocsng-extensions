@@ -42,7 +42,8 @@ SetupWebPage::AddModule(
 
 		),
 		'dictionary' => array(
-			'en.dict.itop-ocsng-extensions.php',
+			'en.dict.itop-ocsng.php',
+			'fr.dict.itop-ocsng.php',
 		),
 		'data.struct' => array(
 			'data.struct.ocsng-extensions.xml',

@@ -31,14 +31,22 @@
       <presentation>
         <details>
           <items>
-            <item id="oslicence_id" _delta="define">
-              <rank>42</rank>
-            </item>
-            <item id="ocs_oscomment" _delta="define">
-              <rank>43</rank>
-            </item>
-            <item id="ocs_id" _delta="define">
-              <rank>530</rank>
+            <item id="col:col1" _delta="must_exist">
+              <items>
+                <item id="fieldset:Server:moreinfo" _delta="must_exist">
+                  <items>
+                    <item id="oslicence_id" _delta="define">
+                      <rank>42</rank>
+                    </item>
+                    <item id="ocs_oscomment" _delta="define">
+                      <rank>43</rank>
+                    </item>
+                    <item id="ocs_id" _delta="define">
+                      <rank>530</rank>
+                    </item>
+                  </items>
+                </item>
+              </items>
             </item>
           </items>
         </details>
@@ -73,11 +81,19 @@
       <presentation>
         <details>
           <items>
-            <item id="ocs_oscomment" _delta="define">
-              <rank>43</rank>
-            </item>
-            <item id="ocs_id" _delta="define">
-              <rank>530</rank>
+            <item id="col:col1" _delta="must_exist">
+              <items>
+                <item id="fieldset:Server:moreinfo" _delta="must_exist">
+                  <items>
+                    <item id="ocs_oscomment" _delta="define">
+                      <rank>43</rank>
+                    </item>
+                  </items>
+                </item>
+                <item id="ocs_id" _delta="define">
+                  <rank>530</rank>
+                </item>
+              </items>
             </item>
           </items>
         </details>
@@ -99,11 +115,19 @@
       <presentation>
         <details>
           <items>
-            <item id="ocs_oscomment" _delta="define">
-              <rank>43</rank>
-            </item>
-            <item id="ocs_id" _delta="define">
-              <rank>530</rank>
+            <item id="col:col1" _delta="must_exist">
+              <items>
+                <item id="fieldset:Server:moreinfo" _delta="must_exist">
+                  <items>
+                    <item id="ocs_oscomment" _delta="define">
+                      <rank>43</rank>
+                    </item>
+                  </items>
+                </item>
+                <item id="ocs_id" _delta="define">
+                  <rank>530</rank>
+                </item>
+              </items>
             </item>
           </items>
         </details>
@@ -149,19 +173,23 @@
       <presentation>
         <details>
           <items>
-            <item id="ocs_osfamily_name" _delta="define">
-              <rank>500</rank>
+            <item id="fieldset:Server:moreinfo" _delta="define">
+              <items>
+                <item id="ocs_osfamily_name" _delta="define">
+                  <rank>500</rank>
+                </item>
+                <item id="ocs_osversion_name" _delta="define">
+                  <rank>510</rank>
+                </item>
+                <item id="ocs_oscomment" _delta="define">
+                  <rank>520</rank>
+                </item>
+              </items>
             </item>
-            <item id="ocs_osversion_name" _delta="define">
-              <rank>510</rank>
-            </item>
-            <item id="ocs_oscomment" _delta="define">
-              <rank>520</rank>
+            <item id="ocs_id" _delta="define">
+              <rank>530</rank>
             </item>
           </items>
-          <item id="ocs_id" _delta="define">
-            <rank>530</rank>
-          </item>
         </details>
       </presentation>
     </class>
@@ -183,11 +211,11 @@
         </details>
       </presentation>
     </class>
-    <class id="OCSAssetCategorie" _delta="define">
+    <class id="OCSAssetCategory" _delta="define">
       <properties>
         <category>bizmodel,searchable</category>
         <abstract>false</abstract>
-        <db_table>assets_categories</db_table>
+        <db_table>assets_category</db_table>
         <naming>
           <attributes>
             <attribute id="name"/>
@@ -250,11 +278,11 @@
       <methods></methods>
       <parent>Typology</parent>
     </class>
-    <class id="OCSSoftwareCategorie" _delta="define">
+    <class id="OCSSoftwareCategory" _delta="define">
       <properties>
         <category>bizmodel,searchable</category>
         <abstract>false</abstract>
-        <db_table>software_categories</db_table>
+        <db_table>software_category</db_table>
         <naming>
           <attributes>
             <attribute id="name"/>
@@ -340,11 +368,11 @@
             <dashlets>
               <dashlet id="20" xsi:type="DashletBadge" _delta="define">
                 <rank>20</rank>
-                <class>OCSAssetCategorie</class>
+                <class>OCSAssetCategory</class>
               </dashlet>
               <dashlet id="21" xsi:type="DashletBadge" _delta="define">
                 <rank>21</rank>
-                <class>OCSSoftwareCategorie</class>
+                <class>OCSSoftwareCategory</class>
               </dashlet>
             </dashlets>
           </cell>

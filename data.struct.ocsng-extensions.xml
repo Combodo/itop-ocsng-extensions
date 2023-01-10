@@ -5,16 +5,16 @@
   -->
 
 <Set>
-  <OCSAssetCategorie alias="OCSAssetCategorie" id="1">
+  <OCSAssetCategory alias="OCSAssetCategory" id="1">
     <name>PC</name>
     <target_class>PC</target_class>
-  </OCSAssetCategorie>
-  <OCSAssetCategorie alias="OCSAssetCategorie" id="2">
+  </OCSAssetCategory>
+  <OCSAssetCategory alias="OCSAssetCategory" id="2">
     <name>Server</name>
     <target_class>Server</target_class>
-  </OCSAssetCategorie>
-  <OCSSoftwareCategorie alias="OCSSoftwareCategorie" id="1">
+  </OCSAssetCategory>
+  <OCSSoftwareCategory alias="OCSSoftwareCategory" id="1">
     <name>Microsoft Office</name>
     <type>PCSoftware</type>
-  </OCSSoftwareCategorie>
+  </OCSSoftwareCategory>
 </Set>

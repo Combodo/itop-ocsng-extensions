@@ -13,8 +13,10 @@
 Dict::Add('FR FR', 'French', 'French', array(
 	'Class:PC/Attribute:oslicence_id'    => 'Licence de l\'OS',
 	'Class:PC/Attribute:oslicence_id+'   => '',
-	'Class:PC/Attribute:oslicence_name'  => 'Nom de la licence de l\'OS',
+	'Class:PC/Attribute:oslicence_name'  => 'Licence de l\'OS',
 	'Class:PC/Attribute:oslicence_name+' => '',
+	'Class:PC/Attribute:ocs_oscomment'   => 'Commentaire sur l\'OS',
+	'Class:PC/Attribute:ocs_oscomment+'  => '',
 ));
 
 //
@@ -63,20 +65,24 @@ Dict::Add('FR FR', 'French', 'French', array(
 ));
 
 //
-// Class: OCSAssetCategorie
+// Class: OCSAssetCategory
 //
 Dict::Add('FR FR', 'French', 'French', array(
-	'Class:OCSAssetCategorie/Attribute:target_class'  => 'Classe associée',
-	'Class:OCSAssetCategorie/Attribute:target_class+' => '',
+	'Class:OCSAssetCategory'                         => 'OCS: Catégorie de machine',
+	'Class:OCSAssetCategory+'                        => '',
+	'Class:OCSAssetCategory/Attribute:target_class'  => 'Classe associée',
+	'Class:OCSAssetCategory/Attribute:target_class+' => '',
 ));
 
 //
-// Class: OCSSoftwareCategorie
+// Class: OCSSoftwareCategory
 //
 
 Dict::Add('FR FR', 'French', 'French', array(
-	'Class:OCSSoftwareCategorie/Attribute:type'  => 'Type',
-	'Class:OCSSoftwareCategorie/Attribute:type+' => '',
+	'Class:OCSSoftwareCategory'                 => 'OCS: Catégorie de logiciel',
+	'Class:OCSSoftwareCategory+'                => '',
+	'Class:OCSSoftwareCategory/Attribute:type'  => 'Type',
+	'Class:OCSSoftwareCategory/Attribute:type+' => '',
 ));
 
 //

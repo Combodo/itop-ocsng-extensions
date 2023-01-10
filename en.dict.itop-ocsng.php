@@ -15,6 +15,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:PC/Attribute:oslicence_id+'   => '',
 	'Class:PC/Attribute:oslicence_name'  => 'OS license name',
 	'Class:PC/Attribute:oslicence_name+' => '',
+	'Class:PC/Attribute:ocs_oscomment'   => 'OS comment',
+	'Class:PC/Attribute:ocs_oscomment+'  => '',
 ));
 
 //
@@ -22,7 +24,7 @@ Dict::Add('EN US', 'English', 'English', array(
 //
 
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:Server/Attribute:ocs_oscomment'  => 'OS Comment',
+	'Class:Server/Attribute:ocs_oscomment'  => 'OS comment',
 	'Class:Server/Attribute:ocs_oscomment+' => '',
 ));
 
@@ -31,7 +33,7 @@ Dict::Add('EN US', 'English', 'English', array(
 //
 
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:VirtualMachine/Attribute:ocs_oscomment'  => 'OS Comment',
+	'Class:VirtualMachine/Attribute:ocs_oscomment'  => 'OS comment',
 	'Class:VirtualMachine/Attribute:ocs_oscomment+' => '',
 ));
 
@@ -41,7 +43,7 @@ Dict::Add('EN US', 'English', 'English', array(
 //
 
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:MobilePhone/Attribute:ocs_oscomment'       => 'OS Comment',
+	'Class:MobilePhone/Attribute:ocs_oscomment'       => 'OS comment',
 	'Class:MobilePhone/Attribute:ocs_oscomment+'      => '',
 	'Class:MobilePhone/Attribute:ocs_osfamily_id'     => 'OS family',
 	'Class:MobilePhone/Attribute:ocs_osfamily_id+'    => '',
@@ -63,27 +65,30 @@ Dict::Add('EN US', 'English', 'English', array(
 ));
 
 //
-// Class: OCSAssetCategorie
+// Class: OCSAssetCategory
 //
 
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:OCSAssetCategorie/Attribute:target_class'  => 'Target class',
-	'Class:OCSAssetCategorie/Attribute:target_class+' => '',
+	'Class:OCSAssetCategory'                         => 'OCS: Asset Category',
+	'Class:OCSAssetCategory+'                        => '',
+	'Class:OCSAssetCategory/Attribute:target_class'  => 'Target class',
+	'Class:OCSAssetCategory/Attribute:target_class+' => '',
 ));
 
 //
-// Class: OCSSoftwareCategorie
+// Class: OCSSoftwareCategory
 //
 
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:OCSSoftwareCategorie/Attribute:type'  => 'Type',
-	'Class:OCSSoftwareCategorie/Attribute:type+' => '',
+	'Class:OCSSoftwareCategory'                 => 'OCS: Software Category',
+	'Class:OCSSoftwareCategory+'                => '',
+	'Class:OCSSoftwareCategory/Attribute:type'  => 'Type',
+	'Class:OCSSoftwareCategory/Attribute:type+' => '',
 ));
 
 //
 // Others
 //
-
 Dict::Add('EN US', 'English', 'English', array(
 	'OCS_link' => 'OCS Inventory',
 ));
