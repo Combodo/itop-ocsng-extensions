@@ -215,7 +215,7 @@
       <properties>
         <category>bizmodel,searchable</category>
         <abstract>false</abstract>
-        <db_table>assets_category</db_table>
+        <db_table>asset_category</db_table>
         <naming>
           <attributes>
             <attribute id="name"/>
