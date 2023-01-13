@@ -37,6 +37,7 @@ SetupWebPage::AddModule(
 		'datamodel' => array(
 			'src/Hook/OCSngStylesheets.php',
 			'src/Hook/OCSngMenuExtension.php',
+			'model.itop-ocsng.php',
 		),
 		'webservice' => array(
 

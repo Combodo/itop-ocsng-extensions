@@ -19,9 +19,7 @@ class OCSngMenuExtension implements iPopupMenuExtension
 		$aExtraMenus = array();
 		if ($iMenuId == iPopupMenuExtension::MENU_OBJDETAILS_ACTIONS && in_array(get_class($param), ['PC', 'Server', 'VirtualMachine', 'MobilePhone'])) {
 			if (MetaModel::IsValidAttCode(get_class($param), 'ocs_id')) {
-				IssueLog::Info('ICI');
 				$iOCSID = $param->Get('ocs_id');
-				IssueLog::Info('idocs'.$iOCSID);
 				if ($iOCSID !== null) {
 					$sOcsngURL = MetaModel::GetModuleSetting('itop-ocsng', 'ocsng_url', '');
 					$sHostURL = $sOcsngURL.'index.php?function=computer&head=1&systemid='.$iOCSID;
@@ -30,33 +28,6 @@ class OCSngMenuExtension implements iPopupMenuExtension
 					$aExtraMenus[] = $oButtonOCS;
 				}
 			}
-
-			/*$aSynchroData = $param->GetSynchroData();
-			$iOCSID = null;
-			foreach ($aSynchroData as $iSourceId => $aData) {
-				/**
-				 * @var SynchroDataSource $oSynchroDataSource
-				 *
-				$oSynchroDataSource = $aData['source'];
-				if (str_contains($oSynchroDataSource->GetName(), 'OCSng')) {
-					/**
-					 * @var SynchroReplica $oReplica
-					 *
-					foreach ($aData['replica'] as $oReplica) {
-						// Ignore non-synchronized replicas
-						if ($oReplica->Get('status') !== 'synchronized') {
-							continue;
-						}
-
-						$sSQLTable = $oSynchroDataSource->GetDataTable();
-						$aExtraData = $oReplica->LoadExtendedDataFromTable($sSQLTable);
-						// Hack: the OCSID is stored in the NON-SYNCHRONIZED field 'tickets_list' !!!
-						$iOCSID = $aExtraData['tickets_list'];
-						// Stop once we've found one OCS ID (we'll display only one iframe)
-						break;
-					}
-				}
-			}*/
 		}
 
 		return $aExtraMenus;
