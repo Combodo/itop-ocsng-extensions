@@ -41,9 +41,6 @@
                     <item id="ocs_oscomment" _delta="define">
                       <rank>43</rank>
                     </item>
-                    <item id="ocs_id" _delta="define">
-                      <rank>530</rank>
-                    </item>
                   </items>
                 </item>
               </items>
@@ -90,9 +87,6 @@
                     </item>
                   </items>
                 </item>
-                <item id="ocs_id" _delta="define">
-                  <rank>530</rank>
-                </item>
               </items>
             </item>
           </items>
@@ -101,6 +95,9 @@
     </class>
     <class id="VirtualMachine" _delta="must_exist">
       <fields>
+        <field id="virtualhost_id" xsi:type="AttributeExternalKey" _delta="must_exist">
+          <is_null_allowed _delta="redefine">true</is_null_allowed>
+        </field>
         <field id="ocs_oscomment" xsi:type="AttributeString" _delta="define">
           <sql>ocs_oscomment</sql>
           <default_value/>
@@ -123,9 +120,6 @@
                       <rank>43</rank>
                     </item>
                   </items>
-                </item>
-                <item id="ocs_id" _delta="define">
-                  <rank>530</rank>
                 </item>
               </items>
             </item>
@@ -185,9 +179,6 @@
                   <rank>520</rank>
                 </item>
               </items>
-            </item>
-            <item id="ocs_id" _delta="define">
-              <rank>530</rank>
             </item>
           </items>
         </details>
