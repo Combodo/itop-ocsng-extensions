@@ -95,7 +95,7 @@
     </class>
     <class id="VirtualMachine" _delta="must_exist">
       <fields>
-        <field id="virtualhost_id" xsi:type="AttributeExternalKey" _delta="must_exist">
+        <field id="virtualhost_id" xsi:type="AttributeExternalKey">
           <is_null_allowed _delta="redefine">true</is_null_allowed>
         </field>
         <field id="ocs_oscomment" xsi:type="AttributeString" _delta="define">
