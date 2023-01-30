@@ -70,7 +70,9 @@ Dict::Add('EN US', 'English', 'English', array(
 
 Dict::Add('EN US', 'English', 'English', array(
 	'Class:OCSAssetCategory'                         => 'OCS: Asset Category',
-	'Class:OCSAssetCategory+'                        => '',
+	'Class:OCSAssetCategory+'                        => 'Asset Category used for the data synchronization with OCS',
+	'Class:OCSAssetCategory/Attribute:description'   => 'description',
+	'Class:OCSAssetCategory/Attribute:description+'  => '',
 	'Class:OCSAssetCategory/Attribute:target_class'  => 'Target class',
 	'Class:OCSAssetCategory/Attribute:target_class+' => '',
 ));
@@ -81,7 +83,7 @@ Dict::Add('EN US', 'English', 'English', array(
 
 Dict::Add('EN US', 'English', 'English', array(
 	'Class:OCSSoftwareCategory'                 => 'OCS: Software Category',
-	'Class:OCSSoftwareCategory+'                => '',
+	'Class:OCSSoftwareCategory+'                => 'Software Category used for the data synchronization with OCS',
 	'Class:OCSSoftwareCategory/Attribute:type'  => 'Type',
 	'Class:OCSSoftwareCategory/Attribute:type+' => '',
 ));
@@ -90,5 +92,5 @@ Dict::Add('EN US', 'English', 'English', array(
 // Others
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'OCS_link' => 'OCS Inventory',
+	'UI:Menu:OCS_Inventory' => 'open in OCS Inventory',
 ));

@@ -1,3 +1,5 @@
-.ocs_icon{
-	content: url(../img/ocs-icon.png);
+.ocs_icon {
+	content: url(../img/OCS-noir.svg);
+	height: 17px;
+	margin-bottom: -3px;
 }

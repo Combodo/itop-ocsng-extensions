@@ -218,6 +218,9 @@
             <attribute id="finalclass"/>
           </attributes>
         </reconciliation>
+        <style>
+          <icon>./asset/img/OCS-noir.svg</icon>
+        </style>
       </properties>
       <fields>
         <field id="target_class" xsi:type="AttributeEnum">
@@ -229,9 +232,14 @@
             <value id="MobilePhone">MobilePhone</value>
           </values>
           <default_value/>
-          <is_null_allowed>false</is_null_allowed>
+          <is_null_allowed>true</is_null_allowed>
           <display_style>list</display_style>
           <dependencies/>
+        </field>
+        <field id="description" xsi:type="AttributeString" _delta="define">
+          <sql>description</sql>
+          <default_value/>
+          <is_null_allowed>true</is_null_allowed>
         </field>
       </fields>
       <presentation>
@@ -242,6 +250,9 @@
             </item>
             <item id="target_class">
               <rank>20</rank>
+            </item>
+            <item id="description">
+              <rank>30</rank>
             </item>
           </items>
         </list>
@@ -262,6 +273,9 @@
             </item>
             <item id="target_class">
               <rank>20</rank>
+            </item>
+            <item id="description">
+              <rank>30</rank>
             </item>
           </items>
         </details>

@@ -69,7 +69,9 @@ Dict::Add('FR FR', 'French', 'French', array(
 //
 Dict::Add('FR FR', 'French', 'French', array(
 	'Class:OCSAssetCategory'                         => 'OCS: Catégorie de machine',
-	'Class:OCSAssetCategory+'                        => '',
+	'Class:OCSAssetCategory+'                        => 'Catégories de machine utilisées pour la synchronisation des données avec OCS',
+	'Class:OCSAssetCategory/Attribute:description'   => 'description',
+	'Class:OCSAssetCategory/Attribute:description+'  => '',
 	'Class:OCSAssetCategory/Attribute:target_class'  => 'Classe associée',
 	'Class:OCSAssetCategory/Attribute:target_class+' => '',
 ));
@@ -80,7 +82,7 @@ Dict::Add('FR FR', 'French', 'French', array(
 
 Dict::Add('FR FR', 'French', 'French', array(
 	'Class:OCSSoftwareCategory'                 => 'OCS: Catégorie de logiciel',
-	'Class:OCSSoftwareCategory+'                => '',
+	'Class:OCSSoftwareCategory+'                => 'Catégories de logiciels utilisées pour la synchronisation des données avec OCS',
 	'Class:OCSSoftwareCategory/Attribute:type'  => 'Type',
 	'Class:OCSSoftwareCategory/Attribute:type+' => '',
 ));
@@ -90,5 +92,5 @@ Dict::Add('FR FR', 'French', 'French', array(
 //
 
 Dict::Add('FR FR', 'French', 'French', array(
-	'OCS_link' => 'OCS Inventory',
+	'UI:Menu:OCS_Inventory' => 'ouvrir dans OCS Inventory',
 ));
