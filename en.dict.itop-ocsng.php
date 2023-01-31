@@ -92,5 +92,5 @@ Dict::Add('EN US', 'English', 'English', array(
 // Others
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'UI:Menu:OCS_Inventory' => 'open in OCS Inventory',
+	'UI:Menu:OCS_Inventory' => 'Open in OCS Inventory',
 ));

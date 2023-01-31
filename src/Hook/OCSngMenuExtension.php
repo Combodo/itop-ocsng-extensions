@@ -23,8 +23,10 @@ class OCSngMenuExtension implements iPopupMenuExtension
 				if ($iOCSID !== null) {
 					$sOcsngURL = MetaModel::GetModuleSetting('itop-ocsng', 'ocsng_url', '');
 					$sHostURL = $sOcsngURL.'index.php?function=computer&head=1&systemid='.$iOCSID;
-					$oButtonOCS = new URLButtonItem('OCS_Inventory', Dict::S('OCS_link'), $sHostURL, '_ocs'.get_class($param).$iOCSID);
-					$oButtonOCS->SetIconClass("ocs_icon");
+					$oButtonOCS = new URLButtonItem('OCS_Inventory', Dict::S('UI:Menu:OCS_Inventory'), $sHostURL, '_ocs'.get_class($param).$iOCSID);
+					if (! (version_compare(ITOP_DESIGN_LATEST_VERSION , '3.0') < 0) ) {
+						$oButtonOCS->SetIconClass("ocs_icon");
+					}
 					$aExtraMenus[] = $oButtonOCS;
 				}
 			}

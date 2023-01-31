@@ -92,5 +92,5 @@ Dict::Add('FR FR', 'French', 'French', array(
 //
 
 Dict::Add('FR FR', 'French', 'French', array(
-	'UI:Menu:OCS_Inventory' => 'ouvrir dans OCS Inventory',
+	'UI:Menu:OCS_Inventory' => 'Ouvrir dans OCS Inventory',
 ));
