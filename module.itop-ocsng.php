@@ -28,7 +28,8 @@ SetupWebPage::AddModule(
 		//
 		'dependencies' => array(
 			'itop-config-mgmt/2.0.0',
-			'itop-virtualization-mgmt/2.0.0',
+			'itop-virtualization-mgmt/2.0.0||itop-config-mgmt/2.0.0',
+			'itop-enduser-devices/2.0.0||itop-config-mgmt/2.0.0',
 		),
 		'mandatory' => false,
 		'visible' => true,
