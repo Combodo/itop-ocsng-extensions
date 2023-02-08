@@ -3,3 +3,53 @@
 	height: 15px;
 	margin-bottom: -3px;
 }
+/* for display of cve score */
+[data-attribute-code="cvss"][data-attribute-flag-read-only="true"] .ibo-field--value {
+	padding: 4px 10px;
+	display: inline;
+	border-radius: 3px;
+}
+[data-attribute-code="cvss"][data-attribute-flag-read-only="true"][data-value-raw^="0"]  .ibo-field--value{
+	color: white;
+	background-color : hsl(110, 100%, 30%)	;
+}
+[data-attribute-code="cvss"][data-attribute-flag-read-only="true"][data-value-raw^="1"]  .ibo-field--value{
+	color: black;
+	background-color : hsl(90, 100%, 40%)	;
+}
+[data-attribute-code="cvss"][data-attribute-flag-read-only="true"][data-value-raw^="2"]  .ibo-field--value{
+	color: black;
+	background-color : hsl(75, 100%, 50%)	;
+}
+[data-attribute-code="cvss"][data-attribute-flag-read-only="true"][data-value-raw^="3"]  .ibo-field--value{
+	color: black;
+	background-color : hsl(67, 100%, 50%)	;
+}
+[data-attribute-code="cvss"][data-attribute-flag-read-only="true"][data-value-raw^="4"]  .ibo-field--value{
+	color: black;
+	background-color : hsl(55, 100%, 50%)	;
+}
+[data-attribute-code="cvss"][data-attribute-flag-read-only="true"][data-value-raw^="5"]  .ibo-field--value{
+	color: black;
+	background-color : hsl(50, 100%, 50%)	;
+}
+[data-attribute-code="cvss"][data-attribute-flag-read-only="true"][data-value-raw^="6"]  .ibo-field--value{
+	color: black;
+	background-color : hsl(40, 100%, 50%)	;
+}
+[data-attribute-code="cvss"][data-attribute-flag-read-only="true"][data-value-raw^="7"]  .ibo-field--value{
+	color: black;
+	background-color : hsl(30, 100%, 50%)	;
+}
+[data-attribute-code="cvss"][data-attribute-flag-read-only="true"][data-value-raw^="8"]  .ibo-field--value{
+	color: white;
+	background-color : hsl(15, 100%, 50%)	;
+}
+[data-attribute-code="cvss"][data-attribute-flag-read-only="true"][data-value-raw^="9"]  .ibo-field--value{
+	color: white;
+	background-color : hsl(10, 100%, 40%)	;
+}
+[data-attribute-code="cvss"][data-attribute-flag-read-only="true"][data-value-raw^="10"]  .ibo-field--value{
+	color: white;
+	background-color : hsl(0, 100%, 35%)	;
+}
