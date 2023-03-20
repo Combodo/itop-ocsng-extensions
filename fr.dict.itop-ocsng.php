@@ -17,8 +17,8 @@ Dict::Add('FR FR', 'French', 'French', array(
 	'Class:PC/Attribute:oslicence_name+' => '',
 	'Class:PC/Attribute:ocs_oscomment'   => 'Commentaire sur l\'OS',
 	'Class:PC/Attribute:ocs_oscomment+'  => '',
-	'Class:VirtualMachine/Attribute:cvss'   => 'Max Cvss',
-	'Class:VirtualMachine/Attribute:cvss+'  => 'Score maximum de vulnérabilité (Cvss) dans les logiciels installés',
+	'Class:PC/Attribute:cvss'            => 'Max Cvss',
+	'Class:PC/Attribute:cvss+'           => 'Score maximum de vulnérabilité (Cvss) dans les logiciels installés',
 ));
 
 //
@@ -28,8 +28,8 @@ Dict::Add('FR FR', 'French', 'French', array(
 Dict::Add('FR FR', 'French', 'French', array(
 	'Class:Server/Attribute:ocs_oscomment'  => 'Commentaire sur l\'OS',
 	'Class:Server/Attribute:ocs_oscomment+' => '',
-	'Class:VirtualMachine/Attribute:cvss'   => 'Max Cvss',
-	'Class:VirtualMachine/Attribute:cvss+'  => 'Score maximum de vulnérabilité (Cvss) dans les logiciels installés',
+	'Class:Server/Attribute:cvss'           => 'Max Cvss',
+	'Class:Server/Attribute:cvss+'          => 'Score maximum de vulnérabilité (Cvss) dans les logiciels installés',
 ));
 
 //
@@ -59,8 +59,8 @@ Dict::Add('FR FR', 'French', 'French', array(
 	'Class:MobilePhone/Attribute:ocs_osversion_id+'   => '',
 	'Class:MobilePhone/Attribute:ocs_osversion_name'  => 'Nom de la version de l\'OS',
 	'Class:MobilePhone/Attribute:ocs_osversion_name+' => '',
-	'Class:VirtualMachine/Attribute:cvss'   => 'Max Cvss',
-	'Class:VirtualMachine/Attribute:cvss+'  => 'Score maximum de vulnérabilité (Cvss) dans les logiciels installés',
+	'Class:MobilePhone/Attribute:cvss'                => 'Max Cvss',
+	'Class:MobilePhone/Attribute:cvss+'               => 'Score maximum de vulnérabilité (Cvss) dans les logiciels installés',
 ));
 
 //
@@ -88,8 +88,8 @@ Dict::Add('FR FR', 'French', 'French', array(
 // Class: Software version
 //
 Dict::Add('EN US', 'French', 'French', array(
-	'Class:VirtualMachine/Attribute:cvss'   => 'Max Cvss',
-	'Class:VirtualMachine/Attribute:cvss+'  => 'Score de vulnérabilité (Cvss) maximum des cve du logiciel',
+	'Class:Software/Attribute:cvss'  => 'Max Cvss',
+	'Class:Software/Attribute:cvss+' => 'Score de vulnérabilité (Cvss) maximum des cve du logiciel',
 ));
 
 //

@@ -17,8 +17,8 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:PC/Attribute:oslicence_name+' => '',
 	'Class:PC/Attribute:ocs_oscomment'   => 'OS comment',
 	'Class:PC/Attribute:ocs_oscomment+'  => '',
-	'Class:VirtualMachine/Attribute:cvss'   => 'Max Cvss',
-	'Class:VirtualMachine/Attribute:cvss+'  => 'Maximum vulnerability score (Cvss) of installed software',
+	'Class:PC/Attribute:cvss'            => 'Max Cvss',
+	'Class:PC/Attribute:cvss+'           => 'Maximum vulnerability score (Cvss) of installed software',
 
 ));
 
@@ -29,8 +29,8 @@ Dict::Add('EN US', 'English', 'English', array(
 Dict::Add('EN US', 'English', 'English', array(
 	'Class:Server/Attribute:ocs_oscomment'  => 'OS comment',
 	'Class:Server/Attribute:ocs_oscomment+' => '',
-	'Class:VirtualMachine/Attribute:cvss'   => 'Max Cvss',
-	'Class:VirtualMachine/Attribute:cvss+'  => 'Maximum vulnerability score (Cvss) of installed software',
+	'Class:Server/Attribute:cvss'           => 'Max Cvss',
+	'Class:Server/Attribute:cvss+'          => 'Maximum vulnerability score (Cvss) of installed software',
 ));
 
 //
@@ -40,8 +40,10 @@ Dict::Add('EN US', 'English', 'English', array(
 Dict::Add('EN US', 'English', 'English', array(
 	'Class:VirtualMachine/Attribute:ocs_oscomment'  => 'OS comment',
 	'Class:VirtualMachine/Attribute:ocs_oscomment+' => '',
-	'Class:VirtualMachine/Attribute:cvss'   => 'Max Cvss',
-	'Class:VirtualMachine/Attribute:cvss+'  => 'Maximum vulnerability score (Cvss) of installed software',
+	'Class:VirtualMachine/Attribute:cvss'           => 'Max Cvss',
+	'Class:VirtualMachine/Attribute:cvss+'          => 'Maximum vulnerability score (Cvss) of installed software',
+	'Class:VirtualMachine/Attribute:cvss'           => 'Max Cvss',
+	'Class:VirtualMachine/Attribute:cvss+'          => 'Maximum vulnerability score (Cvss) of installed software',
 ));
 
 
@@ -60,14 +62,16 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:MobilePhone/Attribute:ocs_osversion_id+'   => '',
 	'Class:MobilePhone/Attribute:ocs_osversion_name'  => 'OS version name',
 	'Class:MobilePhone/Attribute:ocs_osversion_name+' => '',
+	'Class:MobilePhone/Attribute:cvss'                => 'Max Cvss',
+	'Class:MobilePhone/Attribute:cvss+'               => 'Maximum vulnerability score (Cvss) of software cve',
 ));
 
 //
 // Class: Software version
 //
 Dict::Add('EN US', 'English', 'English', array(
-	'Class:VirtualMachine/Attribute:cvss'   => 'Max Cvss',
-	'Class:VirtualMachine/Attribute:cvss+'  => 'Maximum vulnerability score (Cvss) of software cve',
+	'Class:Software/Attribute:cvss'  => 'Max Cvss',
+	'Class:Software/Attribute:cvss+' => 'Maximum vulnerability score (Cvss) of software cve',
 ));
 
 //
