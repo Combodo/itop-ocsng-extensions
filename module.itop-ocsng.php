@@ -16,12 +16,12 @@
 
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'itop-ocsng/1.2.0',
+	'itop-ocsng/2.0.0',
 	array(
 		// Identification
 		//
-		'label' => 'OCS Inventory Integration',
-		'category' => 'inventory',
+		'label'        => 'OCS Inventory Integration',
+		'category'     => 'inventory',
 
 
 		// Setup
