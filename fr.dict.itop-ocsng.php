@@ -87,7 +87,7 @@ Dict::Add('FR FR', 'French', 'French', array(
 //
 // Class: Software version
 //
-Dict::Add('EN US', 'French', 'French', array(
+Dict::Add('FR FR', 'French', 'French', array(
 	'Class:Software/Attribute:cvss'  => 'Max Cvss',
 	'Class:Software/Attribute:cvss+' => 'Score de vulnérabilité (Cvss) maximum des cve du logiciel',
 ));
