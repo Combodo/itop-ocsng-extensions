@@ -42,8 +42,6 @@ Dict::Add('EN US', 'English', 'English', array(
 	'Class:VirtualMachine/Attribute:ocs_oscomment+' => '',
 	'Class:VirtualMachine/Attribute:cvss'           => 'Max Cvss',
 	'Class:VirtualMachine/Attribute:cvss+'          => 'Maximum vulnerability score (Cvss) of installed software',
-	'Class:VirtualMachine/Attribute:cvss'           => 'Max Cvss',
-	'Class:VirtualMachine/Attribute:cvss+'          => 'Maximum vulnerability score (Cvss) of installed software',
 ));
 
 
